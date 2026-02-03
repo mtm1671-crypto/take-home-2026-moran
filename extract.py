@@ -1,10 +1,35 @@
 import os
 import ai
 import asyncio
+import re
 from models import Product
 from prompts import extract_prompt
 from preprocess import preprocess_html
 import json
+
+def clean_text(text: str) -> str:
+    """Strip excessive whitespace and encoding artifacts from text."""
+    if not text:
+        return text
+    # Remove replacement characters and other junk
+    text = text.replace('�', '').replace('\ufffd', '')
+    # Normalize line breaks
+    text = text.replace('\r\n', '\n').replace('\r', '\n')
+    # Collapse tabs and multiple spaces into single space
+    text = re.sub(r'[\t ]+', ' ', text)
+    # Clean up space around newlines
+    text = re.sub(r' *\n *', '\n', text)
+    # Collapse multiple newlines into max two
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    # Remove leading dash-space patterns that got mangled
+    text = re.sub(r'^- +', '- ', text, flags=re.MULTILINE)
+    return text.strip()
+
+def fix_url(url: str) -> str:
+    """Fix protocol-relative URLs by prepending https:"""
+    if url and url.startswith('//'):
+        return 'https:' + url
+    return url
 
 #this is going to be the function that extracts the product object. It borrows from prompts.py which is where we will customize the prompts
 async def extract_product(html: str ) -> Product:
@@ -43,6 +68,13 @@ async def main():
                 total_tokens += tokens_used
 
                 product = await extract_product(html)
+                # Clean up whitespace garbage from text fields
+                product.description = clean_text(product.description)
+                product.key_features = [clean_text(f) for f in product.key_features]
+                # Fix protocol-relative URLs
+                product.image_urls = [fix_url(u) for u in product.image_urls]
+                if product.video_url:
+                    product.video_url = fix_url(product.video_url)
                 products.append(product)
                 print(f"success for {filename}")
                 print(product.model_dump_json(indent=2))

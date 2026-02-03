@@ -1,11 +1,27 @@
 import type {Product} from "../types/product"
 
+const currencySymbols: Record<string, string> = {
+    USD: '$',
+    GBP: '£',
+    EUR: '€',
+    JPY: '¥',
+    CAD: 'C$',
+    AUD: 'A$',
+};
+
+function formatPrice(amount: number, currency: string): string {
+    const symbol = currencySymbols[currency] || currency + ' ';
+    return `${symbol}${amount.toFixed(2)}`;
+}
+
 interface ProductCardProp {
     product: Product;
     onClick: () => void
 }
 
 export function ProductCard({product, onClick}: ProductCardProp){
+    const currency = product.price.currency;
+
     return (
         <div onClick={onClick} className = "cursor-pointer border rounded-lg p-4 hover:shadow-lg">
             {/*Image*/}
@@ -23,10 +39,10 @@ export function ProductCard({product, onClick}: ProductCardProp){
 
             {/* Price */}
             <div>
-                <span>${product.price.price}</span>
+                <span>{formatPrice(product.price.price, currency)}</span>
                 {product.price.compare_at_price && (
                     <span className="line-through text-gray-300 ml-2">
-                        ${product.price.compare_at_price}
+                        {formatPrice(product.price.compare_at_price, currency)}
                     </span>
                 )}
             </div>

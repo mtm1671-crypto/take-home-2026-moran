@@ -2,6 +2,7 @@ import ai
 import asyncio
 import logging
 from pydantic import BaseModel
+from preprocess import preprocess_html
 
 async def hello_world():
     class HelloWorldResponse(BaseModel):

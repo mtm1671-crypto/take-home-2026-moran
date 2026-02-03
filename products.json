@@ -14,12 +14,12 @@
       "Ergonomic handle delivers comfort and control"
     ],
     "image_urls": [
-      "//cdn-tp6.mozu.com/24645-37138/cms/37138/files/f7b42b30-cf5a-4829-be02-76bf93727867",
-      "//cdn-tp6.mozu.com/24645-37138/cms/37138/files/b9e63a53-01c5-44c6-97e2-9c78a7ed2a10",
-      "//cdn-tp6.mozu.com/24645-37138/cms/37138/files/373f3cb5-5ecf-4a57-b7d6-510d8698e977",
-      "//cdn-tp6.mozu.com/24645-37138/cms/37138/files/9e7c188d-d2b8-4217-b5f8-48b29fd445b1",
-      "//cdn-tp6.mozu.com/24645-37138/cms/37138/files/f27d0a21-766f-4f84-9927-30cf76b27188",
-      "//cdn-tp6.mozu.com/24645-37138/cms/37138/files/1b434a2e-7528-42cc-a489-83177395594b"
+      "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/f7b42b30-cf5a-4829-be02-76bf93727867",
+      "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/b9e63a53-01c5-44c6-97e2-9c78a7ed2a10",
+      "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/373f3cb5-5ecf-4a57-b7d6-510d8698e977",
+      "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/9e7c188d-d2b8-4217-b5f8-48b29fd445b1",
+      "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/f27d0a21-766f-4f84-9927-30cf76b27188",
+      "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/1b434a2e-7528-42cc-a489-83177395594b"
     ],
     "video_url": null,
     "category": {
@@ -39,10 +39,10 @@
     "description": "- 65% TENCEL\n- One visible button and one button inside\n- Topstitch at waistband\n- Side pockets\n- Two back pockets with buttoning",
     "key_features": [
       "- 65% TENCEL\u2122 Lyocell, 35% cotton",
-      "- One visible button and one button inside",
-      "- Topstitch at waistband",
-      "- Side pockets",
-      "- Two back pockets with buttoning"
+      "One visible button and one button inside",
+      "Topstitch at waistband",
+      "Side pockets",
+      "Two back pockets with buttoning"
     ],
     "image_urls": [
       "https://adaysmarch.centracdn.net/client/dynamic/images/8521_d363c12cd7-miller-cotton-lyocell-iron.jpg"
@@ -59,6 +59,48 @@
       {
         "size": null,
         "sku": "10280550",
+        "color": "Iron",
+        "price": null,
+        "aval": true
+      },
+      {
+        "size": "44",
+        "sku": null,
+        "color": "Iron",
+        "price": null,
+        "aval": true
+      },
+      {
+        "size": "46",
+        "sku": null,
+        "color": "Iron",
+        "price": null,
+        "aval": true
+      },
+      {
+        "size": "48",
+        "sku": null,
+        "color": "Iron",
+        "price": null,
+        "aval": true
+      },
+      {
+        "size": "50",
+        "sku": null,
+        "color": "Iron",
+        "price": null,
+        "aval": true
+      },
+      {
+        "size": "52",
+        "sku": null,
+        "color": "Iron",
+        "price": null,
+        "aval": true
+      },
+      {
+        "size": "54",
+        "sku": null,
         "color": "Iron",
         "price": null,
         "aval": true
@@ -86,17 +128,9 @@
     },
     "brand": "Article",
     "colors": [
-      "White"
+      "White Terrazzo"
     ],
-    "variants": [
-      {
-        "size": "One Size",
-        "sku": "SKU25289",
-        "color": "White",
-        "price": null,
-        "aval": true
-      }
-    ]
+    "variants": []
   },
   {
     "name": "Men's Carefree Unshrinkable Tee, Traditional Fit, Henley",
@@ -105,11 +139,10 @@
       "currency": "USD",
       "compare_at_price": null
     },
-    "description": "Made of soft cotton that resists wrinkles, shrinking, fading and pilling, our resilient henley keeps its shape wash after wash.\n\nSize & Fit\nTraditional Fit: Relaxed through the chest, sleeve and waist.\n\nWhy We Love It\nWe've put our Unshrinkable Carefree Tees to the test, in the lab and in the field. And we're glad to say our unshrinkable t-shirts passed with flying colors. What's more, the 100% cotton fabric resists wrinkles, fading, pilling and shrinking, so our tee keeps its true-to-size fit while maintaining its comfort and softness. No wonder it's been a customer favorite for as long as we've been making it.\n\nFabric & Care\nRibbed trim is 90% cotton/10% Lycra\u00ae elastane.\n100% jersey-knit cotton.\nDouble ring-spun fabric fights shrinkage, wrinkles, fading and pilling.\nBuilt for comfort, the fabric gets even softer the more you wash and dry it.\nMachine wash and dry.\n\nAdditional Features\nDurable double-needle stitching.\nStraight hem can be worn tucked or untucked.\nComfortable enough for everyday wear.\nTagless printed label for comfort.\nSoft jersey-knit taping on neck seam.\nImported.",
+    "description": "Made of soft cotton that resists wrinkles, shrinking, fading and pilling, our resilient henley keeps its shape wash after wash.",
     "key_features": [
       "Made of soft cotton that resists wrinkles, shrinking, fading and pilling",
       "Traditional Fit: Relaxed through the chest, sleeve and waist.",
-      "100% cotton fabric resists wrinkles, fading, pilling and shrinking",
       "Durable double-needle stitching.",
       "Straight hem can be worn tucked or untucked.",
       "Comfortable enough for everyday wear.",
@@ -121,7 +154,7 @@
     ],
     "video_url": null,
     "category": {
-      "name": "Apparel & Accessories > Clothing > Skirts"
+      "name": "Apparel & Accessories > Clothing > Shirts & Tops"
     },
     "brand": "L.L.Bean",
     "colors": [
@@ -169,28 +202,6 @@
         "color": "Charcoal Heather",
         "price": null,
         "aval": true
-      },
-      {
-        "size": "Regular",
-        "sku": null,
-        "color": "Charcoal Heather",
-        "price": {
-          "price": 24.99,
-          "currency": "USD",
-          "compare_at_price": 29.95
-        },
-        "aval": true
-      },
-      {
-        "size": "Tall",
-        "sku": null,
-        "color": "Charcoal Heather",
-        "price": {
-          "price": 24.99,
-          "currency": "USD",
-          "compare_at_price": 29.95
-        },
-        "aval": true
       }
     ]
   },
@@ -199,7 +210,7 @@
     "price": {
       "price": 76.99,
       "currency": "GBP",
-      "compare_at_price": null
+      "compare_at_price": 109.99
     },
     "description": "Comfortable, durable and timeless\u2014it's number one for a reason. Classic '80s construction, a subtle platform and a blend of smooth synthetic and peached leathers combine for iconic streetwear style.",
     "key_features": [

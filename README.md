@@ -1,5 +1,6 @@
 ## Channel3 Take Home Assignment
 Hi Channel3 Team, this is Michael Moran and this is my writeup on the take-home assignment for the Backend dev role. I also did the Frontend code and writeup as a bonus for fun, feel free to ignore those if you desire
+
 First things first:
 ### How to Run
 
@@ -49,10 +50,9 @@ When thinking about what API to provide for agentic shopping apps, the key insig
 2. A product details endpoint that returns the full structured object we extract here.Potentially with a guide for the agent to know what to look for
 3. A price history endpoint so agents can say "this is 20% below average" and comparisons to products in the same or similar category
 
-For developer tools, the goal is making this data easy to build on:
-1. Python and JavaScript SDKs with typed responses
-1. Instead 
-2. Webhooks for "price dropped" or "back in stock" events
-3. A sandbox environment for testing without rate limits
+For developer tools, the goal is making this data easy to build on. Nobody wants to parse JSON by hand or guess at field names:
+1. Python and JavaScript SDKs with typed responses so devs get autocomplete and catch errors before runtime
+2. Webhooks for "price dropped" or "back in stock" events instead of forcing developers to poll constantly
+3. A sandbox environment for testing without rate limits so you can iterate fast without worrying about hitting quotas
 
 The theme here is the same as the backend: give developers the building blocks without making them do the hard work themselves.
