@@ -36,13 +36,13 @@
       "currency": "USD",
       "compare_at_price": null
     },
-    "description": "- 65% TENCEL\n- One visible button and one button inside\n- Topstitch at waistband\n- Side pockets\n- Two back pockets with buttoning",
+    "description": "- 65% TENCEL\nLyocell, 35% cotton\n- One visible button and one button inside\n- Topstitch at waistband\n- Side pockets\n- Two back pockets with buttoning",
     "key_features": [
-      "- 65% TENCEL\u2122 Lyocell, 35% cotton",
-      "One visible button and one button inside",
-      "Topstitch at waistband",
-      "Side pockets",
-      "Two back pockets with buttoning"
+      "- 65% TENCEL\nLyocell, 35% cotton",
+      "- One visible button and one button inside",
+      "- Topstitch at waistband",
+      "- Side pockets",
+      "- Two back pockets with buttoning"
     ],
     "image_urls": [
       "https://adaysmarch.centracdn.net/client/dynamic/images/8521_d363c12cd7-miller-cotton-lyocell-iron.jpg"
@@ -130,7 +130,15 @@
     "colors": [
       "White Terrazzo"
     ],
-    "variants": []
+    "variants": [
+      {
+        "size": "One Size",
+        "sku": "SKU25289",
+        "color": "White Terrazzo",
+        "price": null,
+        "aval": true
+      }
+    ]
   },
   {
     "name": "Men's Carefree Unshrinkable Tee, Traditional Fit, Henley",
@@ -141,7 +149,6 @@
     },
     "description": "Made of soft cotton that resists wrinkles, shrinking, fading and pilling, our resilient henley keeps its shape wash after wash.",
     "key_features": [
-      "Made of soft cotton that resists wrinkles, shrinking, fading and pilling",
       "Traditional Fit: Relaxed through the chest, sleeve and waist.",
       "Durable double-needle stitching.",
       "Straight hem can be worn tucked or untucked.",
@@ -212,14 +219,14 @@
       "currency": "GBP",
       "compare_at_price": 109.99
     },
-    "description": "Comfortable, durable and timeless\u2014it's number one for a reason. Classic '80s construction, a subtle platform and a blend of smooth synthetic and peached leathers combine for iconic streetwear style.",
+    "description": "Comfortable, durable and timeless\n\n\u2014it's number one for a reason. Classic '80s construction, a subtle platform and a blend of smooth synthetic and peached leathers combine for iconic streetwear style.",
     "key_features": [
       "The leather upper with a perforated toe box is breathable and comfortable.",
       "Nike Air unit provides lightweight cushioning.",
       "Rubber outsole with classic pivot circles delivers traction and durability."
     ],
     "image_urls": [
-      "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6a4d2051-1fee-4ce0-aba7-5de42641dae2/NIKE+AIR+FORCE+1+%2707+LV8.png"
+      "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d6d2266d-0fa9-4f34-bf74-6528c9a0945f/NIKE+AIR+FORCE+1+%2707+LV8.png"
     ],
     "video_url": null,
     "category": {

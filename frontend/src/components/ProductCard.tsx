@@ -1,18 +1,5 @@
 import type {Product} from "../types/product"
-
-const currencySymbols: Record<string, string> = {
-    USD: '$',
-    GBP: '£',
-    EUR: '€',
-    JPY: '¥',
-    CAD: 'C$',
-    AUD: 'A$',
-};
-
-function formatPrice(amount: number, currency: string): string {
-    const symbol = currencySymbols[currency] || currency + ' ';
-    return `${symbol}${amount.toFixed(2)}`;
-}
+import { formatPrice } from "../utils/currency"
 
 interface ProductCardProp {
     product: Product;
@@ -21,15 +8,22 @@ interface ProductCardProp {
 
 export function ProductCard({product, onClick}: ProductCardProp){
     const currency = product.price.currency;
+    const imageUrl = product.image_urls[0] || "";
 
     return (
         <div onClick={onClick} className = "cursor-pointer border rounded-lg p-4 hover:shadow-lg">
             {/*Image*/}
-            <img
-                src={product.image_urls[0]}
-                alt={product.name}
-                className="w-full h-48 object-cover"
-            />
+            {imageUrl ? (
+                <img
+                    src={imageUrl}
+                    alt={product.name}
+                    className="w-full h-48 object-cover"
+                />
+            ) : (
+                <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-400">
+                    No image
+                </div>
+            )}
 
             {/* brand */}
             <p className = "text-sm text-gray-500">{product.brand}</p>

@@ -1,19 +1,6 @@
 import { useState } from "react";
 import type {Product} from "../types/product"
-
-const currencySymbols: Record<string, string> = {
-    USD: '$',
-    GBP: '£',
-    EUR: '€',
-    JPY: '¥',
-    CAD: 'C$',
-    AUD: 'A$',
-};
-
-function formatPrice(amount: number, currency: string): string {
-    const symbol = currencySymbols[currency] || currency + ' ';
-    return `${symbol}${amount.toFixed(2)}`;
-}
+import { formatPrice } from "../utils/currency"
 
 interface ProductDetailProps {
     product: Product;
@@ -31,6 +18,8 @@ export function ProductDetail({product, onBack}: ProductDetailProps){
     const uniqueSizes = [...new Set(sizes)];
 
     const currency = product.price.currency;
+    const hasImages = product.image_urls.length > 0;
+    const currentImage = hasImages ? product.image_urls[selectedImage] : "";
 
     return (
         <div className ="max-w-4xl mx-auto p-4">
@@ -41,11 +30,17 @@ export function ProductDetail({product, onBack}: ProductDetailProps){
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left: Images! */}
                 <div>
-                    <img
-                        src={product.image_urls[selectedImage]}
-                        alt={product.name}
-                        className="w-full rounded-lg"
+                    {hasImages ? (
+                        <img
+                            src={currentImage}
+                            alt={product.name}
+                            className="w-full rounded-lg"
                         />
+                    ) : (
+                        <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">
+                            No image available
+                        </div>
+                    )}
                     {/* Thumbnail rows */}
                     {product.image_urls.length > 1 && (
                         <div className="flex gap-2 mt-2">
@@ -66,7 +61,7 @@ export function ProductDetail({product, onBack}: ProductDetailProps){
                 <div>
                     <p className="text-sm text-gray-500">{product.brand}</p>
                     <h1 className="text-2xl font-bold">{product.name}</h1>
-                
+
                 {/* Price */}
                 <div className="text-xl mt-2">
                     {formatPrice(product.price.price, currency)}

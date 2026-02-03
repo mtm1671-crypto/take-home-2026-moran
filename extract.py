@@ -6,9 +6,8 @@ from models import Product
 from prompts import extract_prompt
 from preprocess import preprocess_html
 import json
-
+#ai built function to make sure the text we are extracting looks prettier
 def clean_text(text: str) -> str:
-    """Strip excessive whitespace and encoding artifacts from text."""
     if not text:
         return text
     # Remove replacement characters and other junk
@@ -26,22 +25,18 @@ def clean_text(text: str) -> str:
     return text.strip()
 
 def fix_url(url: str) -> str:
-    """Fix protocol-relative URLs by prepending https:"""
     if url and url.startswith('//'):
         return 'https:' + url
     return url
 
 #this is going to be the function that extracts the product object. It borrows from prompts.py which is where we will customize the prompts
-async def extract_product(html: str ) -> Product:
-    # Preprocess HTML to reduce token usage (98% reduction!)
-    processed = preprocess_html(html)
-
+async def extract_product(processed: str) -> Product:
     return await ai.responses(
         #this is the choice due to the lightest option, which is important for scalablity
         model="google/gemini-2.0-flash-lite-001",
         input=[
             {"role": "system", "content": extract_prompt},
-            {"role": "user", "content": processed}  # Use preprocessed instead of raw HTML
+            {"role": "user", "content": processed}
         ],
         text_format=Product
     )
@@ -67,11 +62,11 @@ async def main():
                 tokens_used = estimate_tokens(processed)
                 total_tokens += tokens_used
 
-                product = await extract_product(html)
-                # Clean up whitespace garbage from text fields
+                product = await extract_product(processed)
+                # clean up whitespace garbage from text fields
                 product.description = clean_text(product.description)
                 product.key_features = [clean_text(f) for f in product.key_features]
-                # Fix protocol-relative URLs
+                # fix protocol-relative URLs
                 product.image_urls = [fix_url(u) for u in product.image_urls]
                 if product.video_url:
                     product.video_url = fix_url(product.video_url)
@@ -80,9 +75,17 @@ async def main():
                 print(product.model_dump_json(indent=2))
             except Exception as e:
                 print(f"fail on {filename}: {e}")
-    with open("products.json","w") as f:
-            json.dump([p.model_dump() for p in products], f, indent=2)
-            #products to json
+    # Write to root for backend use
+    output_data = [p.model_dump() for p in products]
+    with open("products.json", "w") as f:
+        json.dump(output_data, f, indent=2)
+
+    # Also write to frontend for UI (single pipeline)
+    frontend_path = os.path.join("frontend", "src", "data", "products.json")
+    os.makedirs(os.path.dirname(frontend_path), exist_ok=True)
+    with open(frontend_path, "w") as f:
+        json.dump(output_data, f, indent=2)
+    print(f"Wrote {len(products)} products to products.json and {frontend_path}")
 
     print(f"\n--- Token Usage ---")
     print(f"Total tokens consumed: ~{total_tokens:,}")

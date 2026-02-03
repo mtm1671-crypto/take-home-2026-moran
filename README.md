@@ -4,12 +4,20 @@ Hi Channel3 Team, this is Michael Moran and this is my writeup on the take-home 
 First things first:
 ### How to Run
 
+Be sure to setup the .env with your api key for Openrouter!
+
 **Backend (Extract products from HTML):**
 ```powershell
 cd take-home-2026-moran-main
-pip install python-dotenv openai pydantic beautifulsoup4
+pip install -r requirements.txt
 python extract.py
 ```
+
+**Run Tests:**
+```powershell
+pytest test_extract.py -v
+```
+This runs unit tests for preprocessing, text cleaning, URL fixing, and model validation.
 
 **Frontend (View product catalog):**
 ```powershell
@@ -30,7 +38,7 @@ cd frontend && npm run dev
 Hopefully this is working for you! Let's get into the system design:
 
 The core of designing any scalable system is understanding what the tradeoffs you make will mean as the workload increases in orders of magnitude. For this project and Channel3's mission generally of indexing the internet, the key thing to understand is cost per token and number of tokens used. In this project those are the primary considerations to consider for both the amount of money and time consumed. In order to get both the time and money consumed to a minimum, this project takes a few crucial steps that will work at scale:
-1. A preprocessing step that reduces token usage in the extract step by 98% but may lose small amounts of product data, such as extra images in the cotton pants. This would mean $519K ? $11K at 50M scale
+1. A preprocessing step that reduces token usage in the extract step by 98% but may lose small amounts of product data, such as extra images in the cotton pants. This would mean $519K to $11K at 50M scale
 2. Utilizing the cheapest and fastest LLM model we have access to alongside a prompt that uses specific examples to work as quickly as possible on the most common html layouts
 3. A fuzzy match catching step that doesn't use an LLM on html that doesn't quite fit what we are looking for, instead of rechecking with an LLM
 

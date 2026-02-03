@@ -23,11 +23,10 @@ class Category(BaseModel):
         if v in VALID_CATEGORIES:
             return v
         #this gets close matches betwween v and valid cats
-        matches = get_close_matches(v,VALID_CATEGORIES, n=1, cutoff=0.3)
+        matches = get_close_matches(v,VALID_CATEGORIES, n=1, cutoff=0.6)
         if matches:
             return matches[0]
         raise ValueError(f"Category '{v}' is not a valid category in categories.txt")
-        return v
 
 class Price(BaseModel):
     price: float

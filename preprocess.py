@@ -1,8 +1,7 @@
-# HTML Preprocessor - you'll build this!
-import re
+# HTML Preprocessor -
 import json
 from bs4 import BeautifulSoup
-
+#gets the scripts
 def extract_jsonld(soup: BeautifulSoup) -> list[dict]:
     jsonld_data = []
     
@@ -11,16 +10,14 @@ def extract_jsonld(soup: BeautifulSoup) -> list[dict]:
         try:
             data = json.loads(script.string)
             jsonld_data.append(data)
-        except:
+        except (json.JSONDecodeError, TypeError):
             continue
     return jsonld_data
 
-
+#gets the meta tags
 def extract_meta_tags(soup: BeautifulSoup) -> dict:
-    """Extract meta tags (title, description, og:image, etc.)"""
-    # Hint: soup.find_all("meta")
+
     
-    # Get tag.get("name") or tag.get("property") and tag.get("content")
     meta_tags = {}
     for tag in soup.find_all("meta"):
         name = tag.get("name") or tag.get("property")
@@ -33,19 +30,20 @@ def extract_meta_tags(soup: BeautifulSoup) -> dict:
     return meta_tags
     
 
-
-def clean_html(html: str) -> str:
-    soupee = BeautifulSoup(html,"html.parser")
-    for tag in soupee.find_all(["script","style","noscript","iframe","svg"]):
+#cleans the rest of the html (accepts soup object to avoid re-parsing)
+def clean_html(soup: BeautifulSoup) -> str:
+    # Work on a copy to avoid modifying the original soup
+    soup_copy = BeautifulSoup(str(soup), "html.parser")
+    for tag in soup_copy.find_all(["script","style","noscript","iframe","svg"]):
         tag.decompose()
-    text = soupee.get_text(separator="\n",strip=True)
+    text = soup_copy.get_text(separator="\n",strip=True)
     return text
-
+#puts it all together + a bit of cleaning
 def preprocess_html(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
     jsonld = extract_jsonld(soup)
     meta = extract_meta_tags(soup)
-    clean_text = clean_html(html)
+    clean_text = clean_html(soup)
 
     if len(clean_text) > 10000:
         clean_text = clean_text[:10000] + "\n... [truncated]"
@@ -62,10 +60,10 @@ def preprocess_html(html: str) -> str:
     parts.append("\nPage Content")
     parts.append(clean_text)
     
-    # 5. Join all parts into one string
+    #Join all parts into one string
     return "\n".join(parts)
 
-
+#ai built test to see the difference
 if __name__ == "__main__":
     import os
 

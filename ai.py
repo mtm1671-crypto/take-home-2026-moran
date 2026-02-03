@@ -47,8 +47,8 @@ def _log_usage(response) -> None:
         return
 
     model = getattr(response, "model", "unknown")
-    input_tokens = getattr(usage, "input_tokens", 0)
-    output_tokens = getattr(usage, "output_tokens", 0)
+    input_tokens = getattr(usage, "prompt_tokens", 0) or getattr(usage, "input_tokens", 0)
+    output_tokens = getattr(usage, "completion_tokens", 0) or getattr(usage, "output_tokens", 0)
 
     # Handle reasoning tokens (may be in output_tokens_details)
     reasoning_tokens = 0
@@ -86,31 +86,37 @@ async def responses(
     **kwargs,
 ) -> T | Any:
     """
-    Call OpenRouter responses API with automatic token usage logging.
+    Call OpenRouter chat completions API with automatic token usage logging.
 
-    OpenAI Responses API: https://platform.openai.com/docs/api-reference/responses
+    Uses OpenAI's beta.chat.completions.parse() for structured Pydantic output.
 
-    @dev: The intention of this function is to be used as a wrapper around the OpenAI Responses API,
+    @dev: The intention of this function is to be used as a wrapper around the OpenAI API,
     so the developer can view token usage and cost extrapolation of each query. If this
     abstraction becomes cumbersome, you may remove it, but it is recommended to observe your token usage.
     """
     client = _get_client()
 
+    # Convert input format to messages format
+    if isinstance(input, str):
+        messages = [{"role": "user", "content": input}]
+    else:
+        messages = input
+
     if text_format is not None:
-        # Use .parse() for Pydantic structured output
-        response = await client.responses.parse(
+        # Use beta.chat.completions.parse() for Pydantic structured output
+        response = await client.beta.chat.completions.parse(
             model=model,
-            input=input,
-            text_format=text_format,
+            messages=messages,
+            response_format=text_format,
             **kwargs,
         )
         _log_usage(response)
-        return response.output_parsed
+        return response.choices[0].message.parsed
     else:
-        # Use .create() for regular responses
-        response = await client.responses.create(
+        # Use chat.completions.create() for regular responses
+        response = await client.chat.completions.create(
             model=model,
-            input=input,
+            messages=messages,
             **kwargs,
         )
         _log_usage(response)
