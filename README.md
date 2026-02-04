@@ -59,8 +59,8 @@ When thinking about what API to provide for agentic shopping apps, the key insig
 3. A price history endpoint so agents can say "this is 20% below average" and comparisons to products in the same or similar category
 
 For developer tools, the goal is making this data easy to build on. Nobody wants to parse JSON by hand or guess at field names:
-1. Python and JavaScript SDKs with typed responses so devs get autocomplete and catch errors before runtime
-2. Webhooks for "price dropped" or "back in stock" events instead of forcing developers to poll constantly
-3. A sandbox environment for testing without rate limits so you can iterate fast without worrying about hitting quotas
+1. Python and JavaScript SDKs with typed responses so devs establish better monitoring and logging 
+2. Webhooks for events like"price dropped" or "back in stock" instead of forcing developers to constantly setup and work with those in their own environment
+3. A sandbox environment for testing without rate limits so you can iterate fast without worrying about hitting quotas and rate limits on your api
 
-The theme here is the same as the backend: give developers the building blocks without making them do the hard work themselves.
+The goal here is to make this a platform that is easy to work with for both testers and developers
