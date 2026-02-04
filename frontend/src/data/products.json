@@ -38,7 +38,7 @@
     },
     "description": "- 65% TENCEL\nLyocell, 35% cotton\n- One visible button and one button inside\n- Topstitch at waistband\n- Side pockets\n- Two back pockets with buttoning",
     "key_features": [
-      "- 65% TENCEL\nLyocell, 35% cotton",
+      "- 65% TENCEL\u2122 Lyocell, 35% cotton",
       "- One visible button and one button inside",
       "- Topstitch at waistband",
       "- Side pockets",
@@ -59,48 +59,6 @@
       {
         "size": null,
         "sku": "10280550",
-        "color": "Iron",
-        "price": null,
-        "aval": true
-      },
-      {
-        "size": "44",
-        "sku": null,
-        "color": "Iron",
-        "price": null,
-        "aval": true
-      },
-      {
-        "size": "46",
-        "sku": null,
-        "color": "Iron",
-        "price": null,
-        "aval": true
-      },
-      {
-        "size": "48",
-        "sku": null,
-        "color": "Iron",
-        "price": null,
-        "aval": true
-      },
-      {
-        "size": "50",
-        "sku": null,
-        "color": "Iron",
-        "price": null,
-        "aval": true
-      },
-      {
-        "size": "52",
-        "sku": null,
-        "color": "Iron",
-        "price": null,
-        "aval": true
-      },
-      {
-        "size": "54",
-        "sku": null,
         "color": "Iron",
         "price": null,
         "aval": true
@@ -132,7 +90,7 @@
     ],
     "variants": [
       {
-        "size": "One Size",
+        "size": null,
         "sku": "SKU25289",
         "color": "White Terrazzo",
         "price": null,
@@ -150,18 +108,18 @@
     "description": "Made of soft cotton that resists wrinkles, shrinking, fading and pilling, our resilient henley keeps its shape wash after wash.",
     "key_features": [
       "Traditional Fit: Relaxed through the chest, sleeve and waist.",
+      "100% cotton fabric resists wrinkles, fading, pilling and shrinking.",
       "Durable double-needle stitching.",
       "Straight hem can be worn tucked or untucked.",
       "Comfortable enough for everyday wear.",
-      "Tagless printed label for comfort.",
-      "Soft jersey-knit taping on neck seam."
+      "Tagless printed label for comfort."
     ],
     "image_urls": [
       "https://cdni.llbean.net/is/image/wim/224626_0_44"
     ],
     "video_url": null,
     "category": {
-      "name": "Apparel & Accessories > Clothing > Shirts & Tops"
+      "name": "Apparel & Accessories > Clothing > Skirts > Mini Skirts"
     },
     "brand": "L.L.Bean",
     "colors": [
@@ -205,6 +163,20 @@
       },
       {
         "size": "XXX-Large",
+        "sku": null,
+        "color": "Charcoal Heather",
+        "price": null,
+        "aval": true
+      },
+      {
+        "size": "Regular",
+        "sku": null,
+        "color": "Charcoal Heather",
+        "price": null,
+        "aval": true
+      },
+      {
+        "size": "Tall",
         "sku": null,
         "color": "Charcoal Heather",
         "price": null,

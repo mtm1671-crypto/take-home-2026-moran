@@ -47,7 +47,7 @@ All of these steps are taken with a primary goal in mind: how do we take this sa
 Of course some of the assumptions made in this project will not hold as you scale:
 1. The clearest one is storing the data as JSON in a folder inside the code. In a production setting you would use PostgreSQL alongside a cache like Redis to both store and serve the data for both the extractor and frontend better.
 2. The extraction uses asyncio, but single-process concurrency has limits. At scale, you'd add
-a job queue (Redis/RabbitMQ) with multiple worker processes, each running async extractions
+a job queue (I prefer RabbitMQ for this) with multiple worker processes, each running async extractions
 with semaphores for API rate limits. Database writes would be batched to reduce I/O overhead.
 
 
